@@ -4,32 +4,28 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-4">
-                        <div class="page-title">
+                        <div class="page-title text-center">
                             <h1>Confirmar registro</h1>
                         </div><!-- /.page-title -->
 
                         <form method="post" action="<?=site_url('correos/enviarEmail')?>" id="acepto" autocomplete="off">
                             <div class="form-group">
-                                <label for="email_user">Correo Electrónico <span class="required">*</span></label>
-                                <input type="email" class="form-control" name="email_user" id="email_user" value="<?=$userdata['correo']?>"/>
+                                <input type="hidden" class="form-control" name="email_user" id="email_user" value="<?=$userdata['correo']?>"/>
                             </div><!-- /.form-group -->
 
                             <div class="form-group">
-                                <label for="nombres_user">Nombre(s) <span class="required">*</span></label>
-                                <input type="text" class="form-control" name="nombres_user" id="nombres_user" value="<?=$userdata['nombres']?>"/>
+                                <input type="hidden" class="form-control" name="nombres_user" id="nombres_user" value="<?=$userdata['nombres']?>"/>
                             </div><!-- /.form-group -->
 
                             <div class="form-group">
-                                <label for="apellidos">Apellidos <span class="required">*</span></label>
-                                <input type="text" class="form-control" name="apellidos" id="apellidos" value="<?=$userdata['apellidos']?>"/>
+                                <input type="hidden" class="form-control" name="apellidos" id="apellidos" value="<?=$userdata['apellidos']?>"/>
                             </div><!-- /.form-group -->
 
                             <div class="form-group">
-                                <label for="pass_user">Contraseña <span class="required">*</span></label>
-                                <input type="password" class="form-control" name="pass_user" id="pass_user" value="<?=$userdata['pass']?>"/>
+                                <input type="hidden" class="form-control" name="pass_user" id="pass_user" value="<?=$userdata['pass']?>"/>
                             </div><!-- /.form-group -->
 
-                            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">ACEPTAR</button>
                         </form>
                     </div><!-- /.col-sm-4 -->
                 </div><!-- /.row -->
