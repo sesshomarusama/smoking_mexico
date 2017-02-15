@@ -1,6 +1,4 @@
-<?php
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Correos extends CI_Controller {
 
@@ -22,8 +20,8 @@ class Correos extends CI_Controller {
             $body = $this->load->view('emails/registrar', $datos, TRUE);
 
             $this->email->set_newline("\r\n");
-            $this->email->from('noreply@smoking-mexico.com', 'Smoking México')
-                    ->to($correo, 'Registro de Usuario')->subject('Solicitud de registro')->message($body);
+            $this->email->from('noreply@smoking-mexico.com', 'Smoking México')->to($correo, 'Registro de Usuario')
+                        ->subject('Solicitud de registro')->message($body);
             //Enviamos el email y si se produce bien o mal imprimimos un true o false
             if ($this->email->send()) echo true;
             else echo false;
