@@ -49,7 +49,6 @@ class Web extends CI_Controller {
     }
     
     public function acepto() {
-        	
         $this->session->keep_flashdata('registered');
         $message = $this->session->flashdata('registered');
         
