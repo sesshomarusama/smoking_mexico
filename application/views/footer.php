@@ -59,7 +59,10 @@
             </footer><!-- /.footer -->
 
         </div><!-- /.page-wrapper -->
-        
+        <script>
+            var base_url = "<?= base_url()?>";
+            var site_url = "<?= site_url()?>";
+        </script>
         <script src="<?=base_url('assets/js/jquery.js')?>" type="text/javascript"></script>
         <script src="<?=base_url('assets/libraries/bootstrap-sass/javascripts/bootstrap/collapse.js')?>" type="text/javascript"></script>
         <script src="<?=base_url('assets/libraries/bootstrap-sass/javascripts/bootstrap/transition.js')?>" type="text/javascript"></script>

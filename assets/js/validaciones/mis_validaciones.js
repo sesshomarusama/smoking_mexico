@@ -3,7 +3,7 @@ $(function(){
     jQuery.validator.addMethod("lettersonly", function (value, element) {
         return this.optional(element) || /^[a-z]+$/i.test(value);
     }, "Solo se aceptan letras!"); 
-    // fin de la nueva función lettersonly
+    // fin de los metodos agregados manualmente
     
     $("form#registrar").validate({
         rules: {
@@ -62,10 +62,9 @@ $(function(){
             })
                     .done(function (datos) {
                         if(datos){
-                            //document.getElementById("registrar").reset();
                             $.confirm({
-                                title: 'Buen tranajo!',
-                                content: 'Reviza tu correo para continuar con el registro',
+                                title: 'Buen trabajo',
+                                content: 'Revisa tu correo para continuar con el registro :)',
                                 type: 'green',
                                 typeAnimated: true,
                                 buttons: {
@@ -73,17 +72,45 @@ $(function(){
                                         text: 'Aceptar',
                                         btnClass: 'btn-green',
                                         action: function () {
+                                            window.location = base_url;
                                         }
                                     }
                                 }
                             });
                         }
                         else{
-                            alert("A ocurrido algún inconveniente intentalo más tarde");
+                            $.confirm({
+                                title: 'L sentimos',
+                                content: 'A ocurrido algún inconveniente intentalo más tarde :(',
+                                type: 'red',
+                                typeAnimated: true,
+                                buttons: {
+                                    Aceptar: {
+                                        text: 'Aceptar',
+                                        btnClass: 'btn-red',
+                                        action: function () {
+                                        }
+                                    }
+                                }
+                            });
                         }
                     })
                     .fail(function () {
                         console.log("error: no existe controlador y/o metodo");
+                        $.confirm({
+                                title: 'Lo sentimos',
+                                content: 'al parecer no tienes conexión a Internet :(',
+                                type: 'red',
+                                typeAnimated: true,
+                                buttons: {
+                                    Aceptar: {
+                                        text: 'Aceptar',
+                                        btnClass: 'btn-red',
+                                        action: function () {
+                                        }
+                                    }
+                                }
+                            });
                     })
                     .always(function () {
                         $("div#before_send").removeClass("before_send");
