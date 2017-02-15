@@ -52,10 +52,14 @@ class Web extends CI_Controller {
     public function acepto() {
         $message = $this->session->flashdata('registered');
         $this->session->flashdata('registered');
+        /*
         echo $message['correo']."<br/>";
         echo $message['nombres']."<br/>";
         echo $message['apat']."<br/>";
         echo $message['pass']."<br/>";
+        */
+        $datos_header['titulo'] = "Confirmar Registro";
+        $this->union('cuentas/acepto', $datos_header);
     }
     
     private function union($vista, $data_header = null, $data_content = null, $data_footer = null){
