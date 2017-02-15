@@ -19,7 +19,7 @@ class Web extends CI_Controller {
     public function registrar(){
         $datos_header['titulo'] = "Crear Cuenta";
         $datos_header['css'] = array('validaciones/screen.css', 'jquery-confirm.min.css');
-        $datos_footer['js'] = array('validaciones/jquery.validate.min.js', 'validaciones/mis_validaciones.js', 'jquery-confirm.min.js');
+        $datos_footer['js'] = array('validaciones/jquery.validate.min.js', 'validaciones/valida_registro.js', 'jquery-confirm.min.js');
         $this->union('cuentas/registrar', $datos_header, $datos_header, $datos_footer);
     }
     

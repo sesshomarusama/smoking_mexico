@@ -19,18 +19,15 @@ class Correos extends CI_Controller {
 
             $datos['data_user'] = array('correo' => $this->myencryption->encode($correo), 'nombres' => $this->myencryption->encode($nombres),
                 'apat' => $this->myencryption->encode($apat), 'pass' => $this->myencryption->encode($contrasena));
-
             $body = $this->load->view('emails/registrar', $datos, TRUE);
 
             $this->email->set_newline("\r\n");
             $this->email->from('noreply@smoking-mexico.com', 'Smoking México')
                     ->to($correo, 'Registro de Usuario')->subject('Solicitud de registro')->message($body);
-            //Enviamos el email y si se produce bien o mal que avise con una flasdata
-            if ($this->email->send()) {
-                echo true;
-            } else {
-                echo false;
-            }
+            //Enviamos el email y si se produce bien o mal imprimimos un true o false
+            if ($this->email->send()) echo true;
+            else echo false;
+            
         } else {
             redirect(base_url(), 'refresh');
         }

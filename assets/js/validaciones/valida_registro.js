@@ -32,19 +32,19 @@ $(function(){
             email_user: "Ingresa una dirección de correo valida!",
             nombres_user: {
                 required: "Es necesario llenar este campo!",
-                minlength: "Se necesitan minimo 4 caracteres!"
+                minlength: "Se necesitan mínimo 4 caracteres!"
             },
             apellidos: {
                required: "Es necesario llenar este campo!",
-               minlength: "Se necesitan minimo 8 caracteres!"
+               minlength: "Se necesitan mínimo 8 caracteres!"
             },
             pass_user: {
                required: "Es necesario llenar este campo!",
-               minlength: "Se necesitan minimo 8 caracteres!"
+               minlength: "Se necesitan mínimo 8 caracteres!"
             },
             pass2_user: {
                required: "Es necesario llenar este campo!",
-               minlength: "Se necesitan minimo 8 caracteres!",
+               minlength: "Se necesitan mínimo 8 caracteres!",
                equalTo: "Las contraseñas no coinciden"
             }
         },
@@ -60,8 +60,8 @@ $(function(){
                     $("div#spinner").addClass("spinner");
                 }
             })
-                    .done(function (datos) {
-                        if(datos){
+                    .done(function (status) {
+                        if(status){
                             $.confirm({
                                 title: 'Buen trabajo',
                                 content: 'Revisa tu correo para continuar con el registro :)',
@@ -80,7 +80,7 @@ $(function(){
                         }
                         else{
                             $.confirm({
-                                title: 'L sentimos',
+                                title: 'Lo sentimos',
                                 content: 'A ocurrido algún inconveniente intentalo más tarde :(',
                                 type: 'red',
                                 typeAnimated: true,
@@ -99,7 +99,7 @@ $(function(){
                         console.log("error: no existe controlador y/o metodo");
                         $.confirm({
                                 title: 'Lo sentimos',
-                                content: 'al parecer no tienes conexión a Internet :(',
+                                content: 'Al parecer no tienes conexión a Internet :(',
                                 type: 'red',
                                 typeAnimated: true,
                                 buttons: {
