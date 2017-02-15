@@ -62,8 +62,21 @@ $(function(){
             })
                     .done(function (datos) {
                         if(datos){
-                            alert("Reviza tu correo para continuar con el registro");
-                            document.getElementById("registrar").reset();
+                            //document.getElementById("registrar").reset();
+                            $.confirm({
+                                title: 'Buen tranajo!',
+                                content: 'Reviza tu correo para continuar con el registro',
+                                type: 'green',
+                                typeAnimated: true,
+                                buttons: {
+                                    Aceptar: {
+                                        text: 'Aceptar',
+                                        btnClass: 'btn-green',
+                                        action: function () {
+                                        }
+                                    }
+                                }
+                            });
                         }
                         else{
                             alert("A ocurrido algún inconveniente intentalo más tarde");

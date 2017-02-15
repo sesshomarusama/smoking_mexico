@@ -21,7 +21,7 @@
         <?php
             if (isset($css) && !empty($css)):
                 foreach ($css as $ruta_css):
-                    echo '<link href="'.base_url($ruta_css).'" rel="stylesheet">'."\n";
+                    echo '<link href="'.base_url('assets/css/'.$ruta_css).'" rel="stylesheet">'."\n";
                 endforeach;
             endif;
         ?>

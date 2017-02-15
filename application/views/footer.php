@@ -76,7 +76,7 @@
         <?php 
             if (isset($js) && !empty($js)):
                 foreach ($js as $ruta_js):
-                    echo '<script src="'.base_url($ruta_js).'" type="text/javascript"></script>'."\n";
+                    echo '<script src="'.base_url('assets/js/'.$ruta_js).'" type="text/javascript"></script>'."\n";
                 endforeach;
             endif;
         ?>
