@@ -30,5 +30,24 @@ class Correos extends CI_Controller {
             redirect(base_url(), 'refresh');
         }
     }
+    
+    public function activarRegistro() {
+        if ($this->input->is_ajax_request()) {
+            $this->load->model('usuario');
+
+            $correo = $this->input->post('email_user');
+            $nombres = $this->input->post('nombres_user');
+            $apat = $this->input->post('apellidos');
+            $contrasena = $this->input->post('pass_user');
+
+            $datos = array('nombres' => $this->myencryption->decode($nombres), 'apaterno' => $this->myencryption->decode($apat),
+                'correo' => $this->myencryption->decode($correo), 'contrasena' => $contrasena);
+
+            $status = $this->usuario->guardaRegistroUsuario($datos);
+            echo $status;
+        }else{
+            redirect(base_url(), 'refresh');
+        }
+    }
 
 }

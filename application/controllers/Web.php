@@ -55,7 +55,8 @@ class Web extends CI_Controller {
         $datos_header['titulo'] = "Confirmar Registro";
         $datos_content['userdata'] = array('correo' => $message['correo'], 'nombres' => $message['nombres'],
                                            'apellidos' => $message['apellidos'], 'pass' => $message['pass']);
-        $this->union('cuentas/acepto', $datos_header, $datos_content);
+        $datos_footer['js'] = array('guarda_registro.js');
+        $this->union('cuentas/acepto', $datos_header, $datos_content, $datos_footer);
     }
     
     private function union($vista, $data_header = null, $data_content = null, $data_footer = null){

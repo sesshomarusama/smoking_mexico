@@ -72,7 +72,8 @@ $(function(){
                                         text: 'Aceptar',
                                         btnClass: 'btn-green',
                                         action: function () {
-                                            window.location = base_url;
+                                            //window.location = base_url;
+                                            location.replace(base_url);
                                         }
                                     }
                                 }

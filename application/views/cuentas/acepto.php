@@ -8,7 +8,7 @@
                             <h1>Confirmar registro</h1>
                         </div><!-- /.page-title -->
 
-                        <form method="post" action="<?=site_url('correos/enviarEmail')?>" id="acepto" autocomplete="off">
+                        <form method="post" action="<?=site_url('correos/activarRegistro')?>" id="acepto" autocomplete="off">
                             <div class="form-group">
                                 <input type="hidden" class="form-control" name="email_user" id="email_user" value="<?=$userdata['correo']?>"/>
                             </div><!-- /.form-group -->
