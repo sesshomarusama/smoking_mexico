@@ -45,13 +45,13 @@ class Web extends CI_Controller {
         # metodo para cachar los datos por url, los flasheamos y redirecionamos para evitar que estos se muestren en la url
         $datos = array('correo' => $correo, 'nombres' => $nombres, 'apellidos' => $apat, 'pass' => $pass);
         $this->session->set_flashdata('registered', $datos);
-        #$this->session->keep_flashdata($datos);
-        redirect(base_url("web/acepto"));
+        redirect(base_url("confirmar-cuenta"));
     }
     
     public function acepto() {
+        	
+        $this->session->keep_flashdata('registered');
         $message = $this->session->flashdata('registered');
-        $this->session->flashdata('registered');
         
         $datos_header['titulo'] = "Confirmar Registro";
         $datos_content['userdata'] = array('correo' => $message['correo'], 'nombres' => $message['nombres'],

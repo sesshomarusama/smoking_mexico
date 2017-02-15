@@ -59,3 +59,4 @@ $route['crear-cuenta'] = 'web/registrar';
 $route['terminos-y-condiciones'] = 'web/condiciones';
 $route['planes-y-precios'] = 'web/precios';
 $route['mi-negocio'] = 'web/detalle_personal';
+$route['confirmar-cuenta'] = 'web/acepto';
