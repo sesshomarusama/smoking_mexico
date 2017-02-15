@@ -42,8 +42,8 @@ class Web extends CI_Controller {
     }
     
     public function catchData($correo, $nombres, $apat, $pass) {
-        # metodo para cachar los datos por url, los flasheamos y redirecionamos para evitar que se vean en la url
-        $datos = array('correo' => $correo, 'nombres' => $nombres, 'apat' => $apat, 'pass' => $pass);
+        # metodo para cachar los datos por url, los flasheamos y redirecionamos para evitar que estos se muestren en la url
+        $datos = array('correo' => $correo, 'nombres' => $nombres, 'apellidos' => $apat, 'pass' => $pass);
         $this->session->set_flashdata('registered', $datos);
         #$this->session->keep_flashdata($datos);
         redirect(base_url("web/acepto"));
@@ -52,14 +52,11 @@ class Web extends CI_Controller {
     public function acepto() {
         $message = $this->session->flashdata('registered');
         $this->session->flashdata('registered');
-        /*
-        echo $message['correo']."<br/>";
-        echo $message['nombres']."<br/>";
-        echo $message['apat']."<br/>";
-        echo $message['pass']."<br/>";
-        */
+        
         $datos_header['titulo'] = "Confirmar Registro";
-        $this->union('cuentas/acepto', $datos_header);
+        $datos_content['userdata'] = array('correo' => $message['correo'], 'nombres' => $message['nombres'],
+                                           'apellidos' => $message['apellidos'], 'pass' => $message['pass']);
+        $this->union('cuentas/acepto', $datos_header, $datos_content);
     }
     
     private function union($vista, $data_header = null, $data_content = null, $data_footer = null){
