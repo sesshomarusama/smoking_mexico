@@ -53,9 +53,10 @@ class Web extends CI_Controller {
         $message = $this->session->flashdata('registered');
         
         $datos_header['titulo'] = "Confirmar Registro";
+        $datos_header['css'] = array('jquery-confirm.min.css');
         $datos_content['userdata'] = array('correo' => $message['correo'], 'nombres' => $message['nombres'],
                                            'apellidos' => $message['apellidos'], 'pass' => $message['pass']);
-        $datos_footer['js'] = array('guarda_registro.js');
+        $datos_footer['js'] = array('jquery-confirm.min.js' ,'guarda_registro.js');
         $this->union('cuentas/acepto', $datos_header, $datos_content, $datos_footer);
     }
     

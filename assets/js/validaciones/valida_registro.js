@@ -3,11 +3,27 @@ $(function(){
     jQuery.validator.addMethod("lettersonly", function (value, element) {
         return this.optional(element) || /^[a-z]+$/i.test(value);
     }, "Solo se aceptan letras!"); 
+    
+    jQuery.validator.addMethod('uniqueEmail', function (value, element) {
+        $.ajax({
+            url: site_url+'/validacion/existeEmail',
+            type: 'POST',
+            async: false,
+            data: {email: value},
+            dataType: 'html',
+            success: function (taken) {
+                return taken;
+            }
+        });
+    }, 'Este correo electrónico no esta disponible');
     // fin de los metodos agregados manualmente
     
     $("form#registrar").validate({
         rules: {
-            email_user: "required",
+            email_user: {
+                required: true,
+                uniqueEmail: true
+            },
             nombres_user: {
                 required: true,
                 minlength: 4,
@@ -29,7 +45,9 @@ $(function(){
             }
         },
         messages: {
-            email_user: "Ingresa una dirección de correo valida!",
+            email_user: {
+                required: "Ingresa una dirección de correo valida!"
+            },
             nombres_user: {
                 required: "Es necesario llenar este campo!",
                 minlength: "Se necesitan mínimo 4 caracteres!"
