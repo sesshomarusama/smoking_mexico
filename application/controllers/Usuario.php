@@ -7,11 +7,11 @@ class Usuario extends CI_Controller {
     
     public function login(){
         if($this->input->is_ajax_request()){
-            $this->load->model('usuario');
-            $this->load->library('myencryption');
+            #$this->load->model('usuario');
+            #$this->load->library('myencryption');
             
-            $correo = $this->input->post("email_user");
-            $pass = $this->input->post("password_user");
+            #$correo = $this->input->post("email_user");
+            #$pass = $this->input->post("password_user");
      
             #$existe = $this->usuario->existeUsuario($correo, $this->myencryption->encode($pass));
             $existe = "si existe XD";
