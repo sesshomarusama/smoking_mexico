@@ -14,11 +14,14 @@ class Usuario extends CI_Model {
     public function existeCorreo($correo){
         $this->db->where("correo", $correo);
         $this->db->from("usuarios");
-        #$count = $this->db->count_all_results();
-        return ($this->db->count_all_results() > 0) ? true : false;
-        /*
-        if ($count > 0) return true;
-        else return false;
-        */
+        return ($this->db->count_all_results() > 0) ? TRUE : FALSE;
+    }
+    
+    public function existeUsuario($correo, $pass){
+        $procedure = "CALL getIdComponente(".$correo.", ".$pass.", @resultado)";
+        $this->db->query($procedure);
+        $call_total = "SELECT @resultado as resul";
+        $query = $this->db->query($call_total);
+        return $query->result();
     }
 }

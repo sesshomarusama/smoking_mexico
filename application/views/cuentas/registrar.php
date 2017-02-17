@@ -4,7 +4,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-4">
-                        <div class="page-title">
+                        <div class="page-title text-center">
                             <h1>Crear una cuenta</h1>
                         </div><!-- /.page-title -->
 

@@ -13,7 +13,9 @@ class Web extends CI_Controller {
 
     public function login(){
         $datos_header['titulo'] = "Iniciar Sesión";
-        $this->union('cuentas/login', $datos_header);
+        $datos_header['css'] = array('validaciones/screen.css', 'jquery-confirm.min.css');
+        $datos_footer['js'] = array('validaciones/jquery.validate.min.js', 'validaciones/valida_login.js', 'jquery-confirm.min.js');
+        $this->union('cuentas/login', $datos_header, null, $datos_footer);
     }
 
     public function registrar(){

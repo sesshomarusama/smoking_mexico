@@ -1,28 +1,15 @@
 $(function(){
     // función agregada manualmente para validar campos de texto y estos solo acepten letras
     jQuery.validator.addMethod("lettersonly", function (value, element) {
-        return this.optional(element) || /^[a-z]+$/i.test(value);
-    }, "Solo se aceptan letras!"); 
-    
-    jQuery.validator.addMethod('uniqueEmail', function (value, element) {
-        $.ajax({
-            url: site_url+'/validacion/existeEmail',
-            type: 'POST',
-            async: false,
-            data: {email: value},
-            dataType: 'html',
-            success: function (taken) {
-                return taken;
-            }
-        });
-    }, 'Este correo electrónico no esta disponible');
+        return this.optional(element) || /^[a-z\s]+$/i.test(value);
+    }, "Solo se aceptan letras!");
     // fin de los metodos agregados manualmente
     
     $("form#registrar").validate({
         rules: {
             email_user: {
                 required: true,
-                uniqueEmail: true
+                email: true
             },
             nombres_user: {
                 required: true,
@@ -46,7 +33,8 @@ $(function(){
         },
         messages: {
             email_user: {
-                required: "Ingresa una dirección de correo valida!"
+                required: "Es necesario llenar este campo",
+                email: "Ingresa una dirección de correo valida!"
             },
             nombres_user: {
                 required: "Es necesario llenar este campo!",

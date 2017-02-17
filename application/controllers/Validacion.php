@@ -16,4 +16,12 @@ class Validacion extends CI_Controller {
             redirect(base_url(), 'refresh');
         }
     }
+    
+    public function prueba($email) {
+        $this->load->model('usuario');
+        #$correo = $this->input->post($email);
+        if($this->usuario->existeCorreo($email)) echo TRUE;
+        else echo FALSE;
+    }
+
 }
