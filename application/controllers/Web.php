@@ -36,7 +36,8 @@ class Web extends CI_Controller {
     }
     
     public function pagina404(){
-        $this->union('webapp/404');
+        $datos_header['titulo'] = "404";
+        $this->union('webapp/404', $datos_header);
     }
     
     public function detalle_personal(){

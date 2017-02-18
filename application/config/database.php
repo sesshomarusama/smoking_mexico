@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql.mueblessanpedrotultepec.com',
-	'username' => 'juan627586',
-	'password' => 'juan8346934',
-	'database' => 'mueblessanpedrobase',
+	'hostname' => 'db4free.net',
+	'username' => 'smoking_user',
+	'password' => 'incorrecta',
+	'database' => 'smoking_base',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
