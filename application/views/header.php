@@ -147,20 +147,7 @@
                                                 <li><a href="blog-detail-left-sidebar.html">Detail Left Sidebar</a></li>
                                             </ul>
                                         </li>
-
-                                        <li >
-                                            <a href="#">Admin <i class="fa fa-chevron-down"></i></a>
-
-                                            <ul class="sub-menu">
-                                                <li><a href="admin-dashboard.html">Dashboard</a></li>
-                                                <li><a href="admin-grid.html">Grid System</a></li>
-                                                <li><a href="admin-tables.html">Tables</a></li>
-                                                <li><a href="admin-forms.html">Forms</a></li>
-                                                <li><a href="admin-notifications.html">Notifications</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li >
+                                        <li>
                                             <a href="#">Contact <i class="fa fa-chevron-down"></i></a>
                                             <ul class="sub-menu">
                                                 <li><a href="contact-1.html">Contact v1</a></li>

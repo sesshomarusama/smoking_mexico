@@ -18,7 +18,7 @@ $(function(){
             },
             apellidos: {
                 required: true,
-                minlength: 5,
+                minlength: 4,
                 lettersonly: true
             },
             pass_user: {
@@ -29,7 +29,8 @@ $(function(){
                 required: true,
                 minlength: 8,
                 equalTo: "#pass_user"
-            }
+            },
+            aceptar: "required"
         },
         messages: {
             email_user: {
@@ -52,7 +53,8 @@ $(function(){
                required: "Es necesario llenar este campo!",
                minlength: "Se necesitan mínimo 8 caracteres!",
                equalTo: "Las contraseñas no coinciden"
-            }
+            },
+            aceptar: "Acepte términos y condiciones"
         },
         submitHandler: function(form){ // con el objeto form accedo a los atributos del formulario
             

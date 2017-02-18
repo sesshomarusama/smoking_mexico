@@ -19,7 +19,7 @@
                                             <input type="password" class="form-control" name="password_user" id="password_user" required/>
                                         </div><!-- /.form-group -->
 
-                                        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                                        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in"></i> Ingresar</button>
                                     </form>
                                 </div><!-- /.col-sm-4 -->
                             </div><!-- /.row -->

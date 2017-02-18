@@ -7,15 +7,26 @@ class Usuario extends CI_Model {
     }
 
     public function guardaRegistroUsuario($datos){
-        $this->db->insert('usuarios', $datos);
-        if($this->db->affected_rows() > 0){
-            $datos_perfil = array('id_usuario' => $this->db->insert_id());
-            $this->db->insert('perfiles', $datos_perfil);
+        $this->db->trans_begin();
+            $this->db->insert('usuarios', $datos);
+            
+            $id_usuario = array('id_usuario' => $this->db->insert_id());
+            $this->db->insert('perfiles', $id_usuario);
+            
+            $id_perfil = array('id_perfil' => $this->db->insert_id());
+            $this->db->insert('horarios', $id_perfil);
+            $this->db->insert('redessociales', $id_perfil);
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === TRUE){
+            # if everything went right, delete the data from the database
+            $this->db->trans_commit();
             return true;
         }else{
+            # if something went wrong, rollback everything
+            $this->db->trans_rollback();
             return false;
         }
-        #return ($this->db->affected_rows() > 0) ? true : false;
     }
     
     public function existeCorreo($correo){

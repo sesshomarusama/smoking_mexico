@@ -33,8 +33,12 @@
                                 <label for="pass2_user">Confirmar Contraseña <span class="required">*</span></label>
                                 <input type="password" class="form-control" name="pass2_user" id="pass2_user">
                             </div><!-- /.form-group -->
+                            
+                            <div class="checkbox">
+                                <input type="checkbox" name="aceptar" id="aceptar" checked disabled><label for="aceptar">Al hacer click en la opción Crear cuenta, aceptas los <a href="<?= base_url('terminos-y-condiciones')?>" target="_blank">Términos y Condiciones</a> de <b>Smoking México</b></label>
+                            </div>
 
-                            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Crear cuenta</button>
                         </form>
                     </div><!-- /.col-sm-4 -->
                 </div><!-- /.row -->
