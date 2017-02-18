@@ -41,7 +41,8 @@ class Correos extends CI_Controller {
             $contrasena = $this->input->post('pass_user');
 
             $datos = array('nombres' => $this->myencryption->decode($nombres), 'apaterno' => $this->myencryption->decode($apat),
-                'correo' => $this->myencryption->decode($correo), 'contrasena' => $contrasena);
+                           'correo' => $this->myencryption->decode($correo), 'contrasena' => $contrasena,
+                           'disponible' => 'Si', 'activo' => 'Si');
 
             $status = $this->usuario->guardaRegistroUsuario($datos);
             echo $status;

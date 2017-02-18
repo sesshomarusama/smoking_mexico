@@ -1,12 +1,16 @@
 $(function(){
    $("form#acepto").on('submit', function(e){
-       e.preventDefault();
-       $.ajax({
-       	url: $(this).attr('action'),
-       	type: $(this).attr('method'),
-       	dataType: 'html',
-       	data: $(this).serialize()
-       })
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            type: $(this).attr('method'),
+            dataType: 'html',
+            data: $(this).serialize(),
+            beforeSend: function () {
+                $("div#before_send").addClass("before_send");
+                $("div#spinner").addClass("spinner");
+            }
+        })
        .done(function(status) {
            if(status){
                             $.confirm({
@@ -61,7 +65,9 @@ $(function(){
                     });
        })
        .always(function() {
-       	console.log("complete");
+           $("div#before_send").removeClass("before_send");
+           $("div#spinner").removeClass("spinner");
+       	   console.log("complete");
        });
    });
 });

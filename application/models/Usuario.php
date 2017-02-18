@@ -9,7 +9,7 @@ class Usuario extends CI_Model {
     public function guardaRegistroUsuario($datos){
         $this->db->insert('usuarios', $datos);
         if($this->db->affected_rows() > 0){
-            $datos_perfil = array('id_perfil' => $this->db->insert_id());
+            $datos_perfil = array('id_usuario' => $this->db->insert_id());
             $this->db->insert('perfiles', $datos_perfil);
             return true;
         }else{
