@@ -33,7 +33,7 @@ class Correos extends CI_Controller {
     
     public function activarRegistro() {
         if ($this->input->is_ajax_request()) {
-            $this->load->model('usuario');
+            $this->load->model(array('usuariomodelo'));
 
             $correo = $this->input->post('email_user');
             $nombres = $this->input->post('nombres_user');
@@ -43,9 +43,9 @@ class Correos extends CI_Controller {
             $datos = array('nombres' => ucwords($this->myencryption->decode($nombres)),
                            'apaterno' => ucfirst($this->myencryption->decode($apat)),
                            'correo' => $correo, 'contrasena' => $contrasena,
-                           'disponible' => 'Si', 'activo' => 'Si');
+                           'activo' => 'Si');
 
-            $status = $this->usuario->guardaRegistroUsuario($datos);
+            $status = $this->usuariomodelo->guardaRegistroUsuario($datos);
             echo $status;
         }else{
             redirect(base_url(), 'refresh');

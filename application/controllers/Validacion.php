@@ -8,20 +8,12 @@ class Validacion extends CI_Controller {
     
     public function existeEmail(){
         if($this->input->is_ajax_request()){
-            $this->load->model('usuario');
+            $this->load->model(array('usuariomodelo'));
             $correo = $this->input->post('email');
-            $status = $this->usuario->existeCorreo($correo);
+            $status = $this->usuariomodelo->existeCorreo($correo);
             echo $status;
         }else{
             redirect(base_url(), 'refresh');
         }
     }
-    
-    public function prueba($email) {
-        $this->load->model('usuario');
-        #$correo = $this->input->post($email);
-        if($this->usuario->existeCorreo($email)) echo TRUE;
-        else echo FALSE;
-    }
-
 }

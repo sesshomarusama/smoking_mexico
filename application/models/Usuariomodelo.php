@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuario extends CI_Model {
+class Usuariomodelo extends CI_Model {
 
     public function __construct() {
         parent::__construct();
@@ -19,11 +19,9 @@ class Usuario extends CI_Model {
         $this->db->trans_complete();
         
         if ($this->db->trans_status() === TRUE){
-            # if everything went right, delete the data from the database
             $this->db->trans_commit();
             return true;
         }else{
-            # if something went wrong, rollback everything
             $this->db->trans_rollback();
             return false;
         }
@@ -36,17 +34,25 @@ class Usuario extends CI_Model {
     }
     
     public function existeUsuario($correo, $pass){
-        $procedure = "CALL loginUser(".$correo.", ".$pass.", @resultado)";
-        $this->db->query($procedure);
-        $call_total = "SELECT @resultado as resul";
-        $query = $this->db->query($call_total);
-        return $query->result();
+        $sql = "CALL loginUser(".$this->db->escape($correo).", ".$this->db->escape($pass).", @resultado)";
+        $this->db->trans_start();
+            $this->db->query($sql);
+            $query = $this->db->query("SELECT @resultado as resul");
+        $this->db->trans_complete();
+        return $query->row()->resul;
     }
     
-    public function cerrarSesion() {
-        $this->session->unset_userdata('logged_in');
-        session_destroy();
-        redirect(base_url(), 'refresh');
+    public function creaSesion($correo) {
+        $this->db->select("id_usuario , CONCAT(nombres, ' ', apaterno) AS nombre");
+        $this->db->from('usuarios');
+        $this->db->where('correo', $correo);
+        $query = $this->db->get();
+        $conf = array(
+            'id_user' => $query->row()->id_usuario,
+            'nombre' => $query->row()->nombre,
+            'logged_in' => TRUE
+        );
+        return $conf;
     }
 
 }

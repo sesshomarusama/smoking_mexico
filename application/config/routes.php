@@ -60,3 +60,5 @@ $route['terminos-y-condiciones'] = 'web/condiciones';
 $route['planes-y-precios'] = 'web/precios';
 $route['mi-negocio'] = 'web/detalle_personal';
 $route['confirmar-cuenta'] = 'web/acepto';
+$route['mi-perfil'] = 'admin/index';
+$route['mi-perfil/datos'] = 'admin/misDatos';

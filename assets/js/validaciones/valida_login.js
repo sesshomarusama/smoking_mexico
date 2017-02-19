@@ -30,7 +30,46 @@ $(function(){
                 }
             })
                     .done(function(data){
-                        alert(data.existe);
+                        switch(data.existe){
+                            case "0":
+                                $.confirm({
+                                    title: 'Lo sentimos',
+                                    content: 'El usuario y/o la contraseña son incorrectas',
+                                    type: 'red',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        Aceptar: {
+                                            text: 'Aceptar',
+                                            btnClass: 'btn-red',
+                                            action: function () {
+                                            }
+                                        }
+                                    }
+                                });
+                            break;
+                                
+                            case "1":
+                                $.confirm({
+                                    title: 'Lo sentimos',
+                                    content: 'Este usuario ha sido desactivado',
+                                    type: 'orange',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        Aceptar: {
+                                            text: 'Aceptar',
+                                            btnClass: 'btn-orange',
+                                            action: function () {
+                                            }
+                                        }
+                                    }
+                                });
+                            break;
+                            
+                            case "2":
+                                location.replace(base_url+'mi-perfil');
+                            break;
+                                
+                        }
                     })
                     .fail(function(){
                         console.log("error: no existe controlador y/o metodo");
