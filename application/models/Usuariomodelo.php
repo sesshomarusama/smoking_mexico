@@ -34,7 +34,7 @@ class Usuariomodelo extends CI_Model {
     }
     
     public function existeUsuario($correo, $pass){
-        $sql = "CALL loginUser(".$this->db->escape($correo).", ".$this->db->escape($pass).", @resultado)";
+        $sql = "CALL loginUser('".$correo."', '".$pass."', @resultado)";
         $this->db->trans_start();
             $this->db->query($sql);
             $query = $this->db->query("SELECT @resultado as resul");

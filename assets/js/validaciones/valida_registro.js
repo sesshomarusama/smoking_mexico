@@ -9,7 +9,18 @@ $(function(){
         rules: {
             email_user: {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: site_url + "/validacion/existeEmail",
+                    type: "post",
+                    dataFilter: function (data) {
+                        if (data === 'taken') {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                }
             },
             nombres_user: {
                 required: true,
@@ -35,7 +46,8 @@ $(function(){
         messages: {
             email_user: {
                 required: "Es necesario llenar este campo",
-                email: "Ingresa una dirección de correo valida!"
+                email: "Ingresa una dirección de correo valida!",
+                remote: "Este correo electrónico ya esta registrado"
             },
             nombres_user: {
                 required: "Es necesario llenar este campo!",

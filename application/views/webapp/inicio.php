@@ -3,7 +3,7 @@
         <div class="content">
             <div class="mt-150">
                 <div class="hero-image">
-                    <div class="hero-image-inner" style="background-image: url('<?=base_url("public_html/imagenes/slider-large-3.jpg")?>');">
+                    <div class="hero-image-inner" style="background-image: url('<?=base_url("assets/img/animal.gif")?>');">
                         <div class="hero-image-content">
                             <div class="container">
                                 <h1>Directory Template</h1>
@@ -23,33 +23,33 @@
                                             <h2 class="text-center">Me gustaría encontrar</h2>
 
                                             <div class="hero-image-keyword form-group">
-                                                <input type="text" class="form-control" placeholder="Keyword">
+                                                <input type="text" class="form-control" placeholder="Smoking">
+                                            </div><!-- /.form-group -->
+                                            
+                                            <div class="hero-image-price form-group">
+                                                <input type="text" class="form-control" placeholder="Precio máximo">
                                             </div><!-- /.form-group -->
 
                                             <div class="hero-image-location form-group">
-                                                <select class="form-control" title="Location">
-                                                    <option>Bronx</option>
-                                                    <option>Brooklyn</option>
-                                                    <option>Manhattan</option>
-                                                    <option>Staten Island</option>
-                                                    <option>Queens</option>
+                                                <select class="form-control" title="Estado">
+                                                    <option>México</option>
+                                                    <option>Morelos</option>
+                                                    <option>Guanajuato</option>
+                                                    <option>Guerrero</option>
+                                                    <option>Yúcatan</option>
                                                 </select>
                                             </div><!-- /.form-group -->
 
                                             <div class="hero-image-category form-group">
-                                                <select class="form-control" title="Category">
-                                                    <option value="">Automotive</option>
-                                                    <option value="">Jobs</option>
-                                                    <option value="">Nightlife</option>
+                                                <select class="form-control" title="Municipio">
+                                                    <option value="">Lerma</option>
+                                                    <option value="">Toluca</option>
+                                                    <option value="">Ocoyoacac</option>
                                                     <option value="">Services</option>
                                                 </select>
                                             </div><!-- /.form-group -->
 
-                                            <div class="hero-image-price form-group">
-                                                <input type="text" class="form-control" placeholder="Min. Price">
-                                            </div><!-- /.form-group -->
-
-                                            <button type="submit" class="btn btn-primary btn-block">Buscar</button>
+                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> Buscar</button>
                                         </form>
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->

@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
         
-        <title>Smoking México | <?=$titulo?></title>
+        <title>Smoking México :: <?=$titulo?></title>
         
         <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
         <link href="<?=base_url('assets/libraries/font-awesome/css/font-awesome.min.css')?>" rel="stylesheet" type="text/css">
@@ -15,6 +15,7 @@
         <link href="<?=base_url('assets/libraries/bootstrap-select/bootstrap-select.min.css')?>" rel="stylesheet" type="text/css">
         <link href="<?=base_url('assets/libraries/bootstrap-fileinput/fileinput.min.css')?>" rel="stylesheet" type="text/css">
         <link href="<?=base_url('assets/css/superlist.css')?>" rel="stylesheet" type="text/css" >
+        <link href="<?=base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" >
         <link href="<?=base_url('assets/css/loaders.css')?>" rel="stylesheet" type="text/css" >
         <link rel="shortcut icon" type="image/x-icon" href="<?=base_url('assets/favicon.png')?>">
 

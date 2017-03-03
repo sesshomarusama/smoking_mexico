@@ -21,9 +21,6 @@ class Correos extends CI_Controller {
             $this->email->set_newline("\r\n");
             $this->email->from('noreply@smoking-mexico.com', 'Smoking México')->to($correo, 'Registro de Usuario')
                         ->subject('Solicitud de registro')->message($body);
-            //Enviamos el email y si se produce bien o mal imprimimos un true o false
-            #if ($this->email->send()) echo true;
-            #else echo false;
             echo $this->email->send();
             
         } else {
